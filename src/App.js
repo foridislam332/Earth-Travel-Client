@@ -1,12 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navigation from './Pages/Shared/Navigation/Navigation';
+import Home from './Pages/Home/Home/Home';
+import Footer from './Pages/Shared/Footer/Footer';
 
 function App() {
     return (
         <div className="App">
-            <h1 className="text-3xl font-bold">
-                Hello world!
-            </h1>
+            <Router>
+                <Navigation></Navigation>
+                <Routes>
+                    <Route exact path="/" element={<Home />} />
+                </Routes>
+                <Footer></Footer>
+            </Router>
         </div>
     );
 }

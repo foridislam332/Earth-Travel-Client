@@ -1,0 +1,20 @@
+.subscrib_box{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.subscrib_box input{
+    width: 100%;
+    padding: 10px;
+}
+
+.subscrib_box button{
+    background-color: aqua;
+    padding: 8px 15px;
+    text-transform: uppercase;
+    margin: 10px 10px 10px 0;
+    font-weight: 600;
+}

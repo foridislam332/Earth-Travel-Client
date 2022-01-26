@@ -1,0 +1,27 @@
+.register_continer{
+    height: 100vh;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.register_box{
+    background-color: #fff;
+    padding: 20px 40px;
+    width: 320px;
+}
+
+.input_field{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.btn_regular{
+    width: 100%;
+}
+
+.login_bottom .btn_regular{
+    width: 100%;
+    margin-bottom: 15px;
+}

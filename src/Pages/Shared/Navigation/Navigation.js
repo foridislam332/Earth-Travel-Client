@@ -1,9 +1,12 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import useAuth from '../../../Hooks/useAuth';
 
 const Navigation = () => {
+    const { user, logOut } = useAuth();
+
     const navigation = [
         { name: 'Home', href: '/', current: true },
         { name: 'Top Spots', href: '/top_S', current: false },
@@ -107,12 +110,18 @@ const Navigation = () => {
                                             </Menu.Item>
                                             <Menu.Item>
                                                 {({ active }) => (
-                                                    <a
+                                                    user.email ? <a
                                                         href="#"
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                                                        onClick={logOut}
+                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-red-700')}
                                                     >
                                                         Sign out
-                                                    </a>
+                                                    </a> : <NavLink
+                                                        to="/login"
+                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                                                    >
+                                                        Sign In
+                                                    </NavLink>
                                                 )}
                                             </Menu.Item>
                                         </Menu.Items>

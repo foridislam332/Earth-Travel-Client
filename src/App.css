@@ -24,11 +24,13 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.btn_primary{
+  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  color: rgb(255 255 255 / 1);
+  background-color: rgb(6 182 212/ 1);
 }

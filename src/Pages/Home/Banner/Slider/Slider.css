@@ -1,0 +1,36 @@
+.slider_content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0000005c;
+    padding: 20px 40px;
+}
+
+.slider_content .btn_primary{
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+}
+
+.carousel .thumbs-wrapper{
+    display: none !important;
+}
+
+.carousel.carousel-slider .control-arrow{
+    color: aqua;
+}
+
+.carousel:hover .control-arrow {
+    background: rgba(0,0,0,0.2);
+    padding: 0 40px;
+}
+
+.carousel .control-dots .selected{
+    border: 3px solid rgb(6 182 212/ 1);
+    background-color: #fff;
+}
+
+.carousel .control-dots .dot{
+    height: 15px !important;
+    width: 15px !important;
+}

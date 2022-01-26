@@ -1,0 +1,33 @@
+.add_blog_container{
+    border: 1px solid #00000021;
+    padding: 40px;
+    box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0);
+    transition: all .3s ease-in-out;
+    width: 60%;
+    margin: 40px auto;
+}
+
+.add_blog_container:hover{
+    box-shadow: 10px 10px 30px 0px rgb(0 0 0 / 15%);
+}
+
+.add_blog_container input, textarea{
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #00000021;
+    padding: 12px 0 12px 12px;
+}
+
+.add_blog_container label{
+    display: block;
+    text-align: left;
+    margin-bottom: 3px;
+}
+
+.add_blog_container label span{
+    color: red;
+}
+
+.add_blog_container .btn_primary{
+    padding: 0.4rem 2.75rem;
+}

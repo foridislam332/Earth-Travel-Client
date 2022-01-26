@@ -6,9 +6,13 @@
 }
 
 .login_box{
-    background-color: #fff;
+    background-color: #c3f1fb;
     padding: 20px 40px;
-    width: 320px;
+}
+
+.login_box a{
+    text-decoration: underline;
+    color: blue;
 }
 
 .input_field{
@@ -16,11 +20,11 @@
     margin-bottom: 10px;
 }
 
-.form_action{
+/* .form_action{
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+} */
 
 .new_user{
     display: flex;
@@ -30,7 +34,7 @@
 
 .new_user hr{
     display: inline-block;
-    background: #f1f1f1;
+    background: #838080;
     height: 1px;
     width: 100px;
 }
@@ -38,4 +42,11 @@
 .login_bottom .btn_regular{
     width: 100%;
     margin-bottom: 15px;
+}
+
+.login_continer input{
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #00000021;
+    padding: 12px 0 12px 12px;
 }

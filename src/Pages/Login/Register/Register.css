@@ -7,14 +7,14 @@
 
 
 .register_box{
-    background-color: #fff;
+    background-color: #c3f1fb;
     padding: 20px 40px;
-    width: 320px;
 }
 
 .input_field{
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    padding: 10px 0 10px 5px;
 }
 
 .btn_regular{

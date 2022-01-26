@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css';
+import Navigation from '../../Shared/Navigation/Navigation';
 import useAuth from '../../../Hooks/useAuth';
 
 const Login = () => {
@@ -28,47 +29,51 @@ const Login = () => {
     };
 
     return (
-        <div className="login_continer">
-            <div className="login_box">
-                <div className="box_title">
-                    <h1>Login</h1>
-                </div>
-                <form onSubmit={handleOnSubmit}>
-                    <div>
-                        <input
-                            className="input_field"
-                            name="email"
-                            type="email"
-                            onBlur={handleOnBlur}
-                        />
+        <>
+            <Navigation></Navigation>
+            <div className="login_continer">
+                <div className="login_box w-4/12">
+                    <div className="box_title">
+                        <h1 className='text-4xl font-bold text-center py-8 mb-4'>Login</h1>
                     </div>
-                    <div>
-                        <input
-                            className="input_field"
-                            placeholder='Password'
-                            name="password"
-                            type="password"
-                            onBlur={handleOnBlur}
-                        />
+                    <form onSubmit={handleOnSubmit}>
+                        <div>
+                            <input
+                                className="input_field"
+                                placeholder='Enter Your Email'
+                                name="email"
+                                type="email"
+                                onBlur={handleOnBlur}
+                            />
+                        </div>
+                        <div className='w-full'>
+                            <input
+                                className="input_field"
+                                placeholder='Password'
+                                name="password"
+                                type="password"
+                                onBlur={handleOnBlur}
+                            />
+                        </div>
+                        <div className="form_action flex items-center justify-between">
+                            <a href="#">Forgot your password?</a>
+                            <button className="btn_primary" type="submit">Sign In</button>
+                        </div>
+                    </form>
+                    <div className="login_bottom">
+                        <div className="new_user my-4">
+                            <hr />
+                            <p>New user?</p>
+                            <hr />
+                        </div>
+                        <Link style={{ textDecoration: 'none' }} to="/register">
+                            <button className="btn_primary w-full mb-3">Creact An Account</button>
+                        </Link>
+                        <button onClick={handleGoogleSignIn} className="btn_primary w-full">Sign In With Google</button>
                     </div>
-                    <div className="form_action">
-                        <a href="#">Forgot your password?</a>
-                        <button className="btn_regular" type="submit">Sign In</button>
-                    </div>
-                </form>
-                <div className="login_bottom">
-                    <div className="new_user">
-                        <hr />
-                        <p>New user?</p>
-                        <hr />
-                    </div>
-                    <Link style={{ textDecoration: 'none' }} to="/register">
-                        <button className="btn_regular">Creact An Account</button>
-                    </Link>
-                    <button onClick={handleGoogleSignIn} className="btn_regular">Sign In With Google</button>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

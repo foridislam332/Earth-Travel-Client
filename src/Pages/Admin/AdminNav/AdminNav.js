@@ -4,21 +4,19 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 
-const Navigation = () => {
+const AdminNav = () => {
     const { user, logOut } = useAuth();
-    console.log(user)
 
     const navigation = [
-        { name: 'Home', href: '/', current: true },
-        { name: 'Top Spots', href: '/top_S', current: false },
-        { name: 'Travel Story', href: '/t_story', current: false },
-        { name: 'Contact Us', href: '/contact', current: false },
+        { name: 'Home', href: '/', current: false },
+        { name: 'Admin', href: '/admin', current: true },
+        { name: 'Make Admin', href: '/makeAdmin', current: false },
+        { name: 'Add Blog', href: '/addBlog', current: false },
     ]
 
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ')
     }
-
     return (
         <Disclosure as="nav" className="bg-gray-800 sticky top-0 z-50">
             {({ open }) => (
@@ -40,7 +38,7 @@ const Navigation = () => {
                                 <div className="flex-shrink-0 flex items-center">
                                     <h2 className='text-4xl font-bold'><span className='text-cyan-500'>Earth</span>Travel</h2>
                                 </div>
-                                <div style={{ margin: 'auto' }} className="hidden sm:block sm:ml-6">
+                                <div style={{ marginLeft: 'auto' }} className="hidden sm:block sm:ml-6">
                                     <div className="flex space-x-4">
                                         {navigation.map((item) => (
                                             <Link
@@ -59,10 +57,6 @@ const Navigation = () => {
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                <Link to="/admin" className="text-lg text-white  font-medium">
-                                    Admin Pannel
-                                </Link>
-
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="ml-3 relative">
                                     <div>
@@ -152,4 +146,4 @@ const Navigation = () => {
     );
 };
 
-export default Navigation;
+export default AdminNav;

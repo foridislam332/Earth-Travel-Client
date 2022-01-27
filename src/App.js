@@ -31,8 +31,8 @@ function App() {
                             element={<PrivateRoute><SingleBlog /></PrivateRoute>}
                         />
                         <Route
-                            path="/addBlogs"
-                            element={<AdminRoute><AddBlog /></AdminRoute>}
+                            path="/createBlog"
+                            element={<PrivateRoute><AddBlog /></PrivateRoute>}
                         />
 
                         <Route

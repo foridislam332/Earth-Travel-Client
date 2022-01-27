@@ -13,7 +13,7 @@ const AdminNav = () => {
         { name: 'Home', href: '/', current: false },
         { name: 'Admin', href: '/admin', current: true },
         { name: 'Make Admin', href: '/makeAdmin', current: false },
-        { name: 'Add Blogs', href: '/addBlogs', current: false },
+        { name: 'Create Blogs', href: '/createBlog', current: false },
         { name: 'Manage Blogs', href: '/manageBlog', current: false },
     ]
 
@@ -39,7 +39,9 @@ const AdminNav = () => {
                             </div>
                             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex-shrink-0 flex items-center">
-                                    <h2 className='text-4xl font-bold'><span className='text-cyan-500'>Earth</span>Travel</h2>
+                                    <Link to="/">
+                                        <h2 className='text-4xl font-bold'><span className='text-cyan-500'>Earth</span>Travel</h2>
+                                    </Link>
                                 </div>
                                 <div style={{ marginLeft: 'auto' }} className="hidden sm:block sm:ml-6">
                                     <div className="flex space-x-4">

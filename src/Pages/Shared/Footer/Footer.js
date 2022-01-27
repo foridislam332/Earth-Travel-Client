@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -7,8 +8,10 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pt-10 pb-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                     <div className="footer_item">
-                        <h2 className='text-4xl font-bold mb-4'><span className='text-cyan-500'>Earth</span>Travel</h2>
-                        <p className='mb-5 text-slate-400'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore explicabo blanditiis alias, excepturi exercitationem dolore error eveniet ea eos, maiores illum! Vel dolo</p>
+                        <Link to="/">
+                            <h2 className='text-4xl font-bold'><span className='text-cyan-500'>Earth</span>Travel</h2>
+                        </Link>
+                        <p className='mb-5 mt-4 text-slate-400'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore explicabo blanditiis alias, excepturi exercitationem dolore error eveniet ea eos, maiores illum! Vel dolo</p>
 
                         <div className="subscrib_box">
                             <input type="email" placeholder='Enter your email' />

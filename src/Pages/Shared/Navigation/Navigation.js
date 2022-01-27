@@ -14,7 +14,7 @@ const Navigation = () => {
         { name: 'Home', href: '/', current: true },
         { name: 'Travel Story', href: '/', current: false },
         { name: 'Blogs', href: '/blogs', current: false },
-        { name: 'Contact Us', href: '/contact', current: false },
+        { name: 'Create Blogs', href: '/createBlog', current: false },
     ]
 
     function classNames(...classes) {
@@ -40,7 +40,9 @@ const Navigation = () => {
                             </div>
                             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex-shrink-0 flex items-center">
-                                    <h2 className='text-4xl font-bold'><span className='text-cyan-500'>Earth</span>Travel</h2>
+                                    <Link to="/">
+                                        <h2 className='text-4xl font-bold'><span className='text-cyan-500'>Earth</span>Travel</h2>
+                                    </Link>
                                 </div>
                                 <div style={{ margin: 'auto' }} className="hidden sm:block sm:ml-6">
                                     <div className="flex space-x-4">

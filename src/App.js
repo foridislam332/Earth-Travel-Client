@@ -8,6 +8,8 @@ import AuthProvider from './Context/AuthProvider/AuthProvider';
 import AddBlog from './Pages/Admin/AddBlog/AddBlog';
 import AdminPannel from './Pages/Admin/AdminPannel/AdminPannel';
 import MakeAdmin from './Pages/Admin/MakeAdmin/MakeAdmin';
+import AdminRoute from './Pages/AdminRoute/AdminRoute';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 
 function App() {
     return (
@@ -16,12 +18,23 @@ function App() {
                 <Router>
                     <Routes>
                         <Route exact path="/" element={<Home />} />
-                        <Route exact path="/home" element={<Home />} />
-                        <Route exact path="/addBlog" element={<AddBlog />} />
-                        <Route exact path="/login" element={<Login />} />
-                        <Route exact path="/register" element={<Register />} />
-                        <Route exact path="/admin" element={<AdminPannel />} />
-                        <Route exact path="/makeAdmin" element={<MakeAdmin />} />
+                        <Route path="/home" element={<Home />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route
+                            path="/addBlog"
+                            element={<AdminRoute><AddBlog /></AdminRoute>}
+                        />
+
+                        <Route
+                            path="/admin"
+                            element={<AdminRoute><AdminPannel /></AdminRoute>}
+                        />
+
+                        <Route
+                            path="/makeAdmin"
+                            element={<AdminRoute><MakeAdmin /></AdminRoute>}
+                        />
                     </Routes>
                     <Footer></Footer>
                 </Router>

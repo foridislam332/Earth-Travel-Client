@@ -1,21 +1,25 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import useAuth from '../../../Hooks/useAuth';
 import AdminNav from '../AdminNav/AdminNav';
+import axios from 'axios';
 import './AddBlog.css';
 
 const AddBlog = () => {
+    const { user } = useAuth();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-
+    const personImg = user.photoURL;
     // handle submit
     const onSubmit = data => {
-        console.log(data)
-        // axios.post('https://safe-coast-68587.herokuapp.com/blog', data)
-        //     .then(res => {
-        //         if (res.data.insertedId) {
-        //             alert("Blog Added Successful!!");
-        //             reset();
-        //         }
-        //     })
+        const newData = { ...data, personImg }
+        console.log(newData)
+        axios.post('http://localhost:5000/blogs', newData)
+            .then(res => {
+                if (res.newData.insertedId) {
+                    alert("Blog Added Successful!!");
+                    reset();
+                }
+            })
     };
     return (
         <>

@@ -3,15 +3,16 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserAlt } from '@fortawesome/free-solid-svg-icons'
 
 const Navigation = () => {
-    const { user, logOut } = useAuth();
-    console.log(user)
+    const { user, admin, logOut } = useAuth();
 
     const navigation = [
         { name: 'Home', href: '/', current: true },
-        { name: 'Top Spots', href: '/top_S', current: false },
-        { name: 'Travel Story', href: '/t_story', current: false },
+        { name: 'Travel Story', href: '/', current: false },
+        { name: 'Blogs', href: '/blogs', current: false },
         { name: 'Contact Us', href: '/contact', current: false },
     ]
 
@@ -59,20 +60,24 @@ const Navigation = () => {
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                <Link to="/admin" className="text-lg text-white  font-medium">
-                                    Admin Pannel
-                                </Link>
+                                {
+                                    admin ? <Link to="/admin" className="text-lg text-white  font-medium">
+                                        Admin Pannel
+                                    </Link> : ""
+                                }
 
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="ml-3 relative">
                                     <div>
                                         <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                                             <span className="sr-only">Open user menu</span>
-                                            <img
-                                                className="h-8 w-8 rounded-full"
-                                                src={user.photoURL}
-                                                alt={user.displayName}
-                                            />
+                                            {
+                                                user.photoURL ? <img
+                                                    className="h-8 w-8 rounded-full"
+                                                    src={user.photoURL}
+                                                    alt={user.displayName} /> :
+                                                    <FontAwesomeIcon className='text-cyan-500 user_icon' icon={faUserAlt} />
+                                            }
                                         </Menu.Button>
                                     </div>
                                     <Transition

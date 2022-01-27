@@ -1,28 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapMarkerAlt, faCalendarAlt, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt, faCalendarAlt, faStar, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import './Experiences.css';
 
 
 const Experiences = () => {
-    const [places, setPlaces] = useState([]);
+    const [blogs, setBlogs] = useState([]);
+    const [page, setPage] = useState(0);
+    const [count, setCount] = useState(0);
+    const [pageCount, setPageCount] = useState(0);
+    const size = 10;
     useEffect(() => {
-        fetch('./fakeData.json')
+        fetch(`http://localhost:5000/blogs?page=${page}&&size=${size}`)
             .then(res => res.json())
-            .then(data => setPlaces(data))
-    }, [])
-    const products = [
-        {
-            id: 1,
-            name: 'Basic Tee',
-            href: '#',
-            imageSrc: 'https://images.pexels.com/photos/6129967/pexels-photo-6129967.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
-            imageAlt: "Front of men's Basic Tee in black.",
-            price: '$35',
-            color: 'Black',
-        },
-        // More products...
-    ]
+            .then(data => {
+                setBlogs(data.blogs)
+                const count = data.count;
+                const pageNumber = Math.ceil(count / size);
+                setCount(count)
+                setPageCount(pageNumber)
+            })
+    }, [page])
 
     return (
         <>
@@ -32,7 +30,7 @@ const Experiences = () => {
 
                     <div className="mt-6 grid grid-cols-1 gap-y-8 gap-x-6 
                     xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8 drop-shadow-lg">
-                        {places.map((item) => (
+                        {blogs.map((item) => (
                             <div key={item.id} className="group relative p-4 drop-shadow-lg">
                                 <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
                                     <img
@@ -80,6 +78,56 @@ const Experiences = () => {
                                 </div>
                             </div>
                         ))}
+                    </div>
+
+                    {/* pagination */}
+                    <div className='pagination mt-3'>
+                        <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+                            <div className="flex-1 flex justify-between sm:hidden">
+                                <span
+                                    className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+                                >
+                                    Previous
+                                </span>
+                                <span
+                                    className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+                                >
+                                    Next
+                                </span>
+                            </div>
+                            <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                                <div>
+                                    <p className="text-sm text-gray-700">
+                                        Showing <span className="font-medium">1</span> to <span className="font-medium">{size}</span> of{' '}
+                                        <span className="font-medium">{count}</span> results
+                                    </p>
+                                </div>
+                                <div>
+                                    <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                                        <span
+                                            className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                                        >
+                                            <span className="sr-only">Previous</span>
+                                            <FontAwesomeIcon className='h-5 w-5' icon={faChevronLeft} />
+                                        </span>
+                                        {
+                                            [...Array(pageCount).keys()]
+                                                .map(number => <button
+                                                    className={number === page ? 'z-10 bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium' : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium'}
+                                                    key={number}
+                                                    onClick={() => setPage(number)}
+                                                >{number + 1}</button>)
+                                        }
+                                        <span
+                                            className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                                        >
+                                            <span className="sr-only">Next</span>
+                                            <FontAwesomeIcon className='h-5 w-5' icon={faChevronRight} />
+                                        </span>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

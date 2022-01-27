@@ -3,6 +3,8 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserAlt } from '@fortawesome/free-solid-svg-icons'
 
 const AdminNav = () => {
     const { user, logOut } = useAuth();
@@ -62,11 +64,13 @@ const AdminNav = () => {
                                     <div>
                                         <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                                             <span className="sr-only">Open user menu</span>
-                                            <img
-                                                className="h-8 w-8 rounded-full"
-                                                src={user.photoURL}
-                                                alt={user.displayName}
-                                            />
+                                            {
+                                                user.photoURL ? <img
+                                                    className="h-8 w-8 rounded-full"
+                                                    src={user.photoURL}
+                                                    alt={user.displayName} /> :
+                                                    <FontAwesomeIcon className='text-cyan-500 user_icon' icon={faUserAlt} />
+                                            }
                                         </Menu.Button>
                                     </div>
                                     <Transition

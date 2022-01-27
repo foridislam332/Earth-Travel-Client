@@ -21,6 +21,8 @@ const useFirebase = () => {
                 setUser(user)
                 const destination = location?.state?.from || "/home";
                 navigate(destination);
+                // save user to the database
+                saveUser(user.email, user.displayName, "PUT");
             }).catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage)
@@ -33,9 +35,9 @@ const useFirebase = () => {
         setIsLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
+                // save user to the database
+                saveUser(email, name, "POST");
 
-                // saveUser(email, name, 'POST')
-                // add user name
                 updateProfile(auth.currentUser, {
                     displayName: name
                 }).then(() => {
@@ -91,8 +93,27 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     };
 
+    //save user to database
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch("http://localhost:5000/users", {
+            method: method,
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(user),
+        }).then();
+    };
+
+    // check admin
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
     return {
         user,
+        admin,
         googleSignIn,
         logOut,
         passwordLoginUser,

@@ -11,7 +11,7 @@ import MakeAdmin from './Pages/Admin/MakeAdmin/MakeAdmin';
 import AdminRoute from './Pages/AdminRoute/AdminRoute';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import SingleBlog from './Pages/SingleBlog/SingleBlog';
-import Blogs from './Pages/Blogs/Blogs';
+import AllBlogs from './Pages/AllBlogs/AllBlogs';
 
 function App() {
     return (
@@ -23,13 +23,13 @@ function App() {
                         <Route path="/home" element={<Home />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
-                        <Route path="/blogs" element={<Blogs />} />
+                        <Route path="/blogs" element={<AllBlogs />} />
                         <Route
                             path="/singleBlog/:blogId"
                             element={<PrivateRoute><SingleBlog /></PrivateRoute>}
                         />
                         <Route
-                            path="/addBlog"
+                            path="/addBlogs"
                             element={<AdminRoute><AddBlog /></AdminRoute>}
                         />
 

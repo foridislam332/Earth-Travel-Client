@@ -13,7 +13,8 @@ const AdminNav = () => {
         { name: 'Home', href: '/', current: false },
         { name: 'Admin', href: '/admin', current: true },
         { name: 'Make Admin', href: '/makeAdmin', current: false },
-        { name: 'Add Blog', href: '/addBlog', current: false },
+        { name: 'Add Blogs', href: '/addBlogs', current: false },
+        { name: 'Manage Blogs', href: '/manageBlog', current: false },
     ]
 
     function classNames(...classes) {

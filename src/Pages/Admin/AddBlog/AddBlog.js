@@ -27,9 +27,12 @@ const AddBlog = () => {
             <div className='add_blog_container'>
                 <div >
                     <div className="login_title mb-5">
-                        <h3>Write Your New Blogs</h3>
+                        <h3 className='text-2xl'>Write Your New Blog</h3>
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)} className='m-auto'>
+                        <label htmlFor="title">Title <span>*</span></label>
+                        <input placeholder='Enter Title' id="title" {...register("title", { required: true })} />
+
                         <label htmlFor="traveler">Traveler Name <span>*</span></label>
                         <input placeholder='Enter Traveler Name' id="traveler" {...register("name", { required: true })} />
 
@@ -39,11 +42,32 @@ const AddBlog = () => {
                         <label htmlFor="img_link">Image Link <span>*</span></label>
                         <input placeholder='Paste your Place image link' id="img_link" {...register("placeImg", { required: true })} />
 
-                        <label htmlFor="blog_details">Blog Description <span>*</span></label>
+                        <label htmlFor="blog_details">Experience Description <span>*</span></label>
                         <textarea style={{ height: '100px', border: '1px solid #00000021', marginBottom: '12px' }} className="w-100 pt-2 ps-2" placeholder="Enter your blog description" id="blog_details" {...register("description", { required: true })} />
 
-                        <label htmlFor="rating">Rating <span>*</span></label>
-                        <input type="number" id="rating" placeholder='Enter Rating' {...register("rating", { required: true })} />
+                        <div className='flex justify-between'>
+                            <div className='w-full mr-1'>
+                                <label htmlFor="cost">Cost Price <span>*</span></label>
+                                <input type="number" id="cost" placeholder='Enter Cost Price' {...register("cost", { required: true })} />
+                            </div>
+
+                            <div className='w-full ml-1'>
+                                <label htmlFor="category">Category <span>*</span></label>
+                                <input type="number" id="category" placeholder='Enter Category' {...register("category", { required: true })} />
+                            </div>
+                        </div>
+
+                        <div className='flex justify-between'>
+                            <div className='w-full mr-1'>
+                                <label htmlFor="rating">Rating <span>*</span></label>
+                                <input type="number" id="rating" placeholder='Enter Rating' {...register("rating", { required: true })} />
+                            </div>
+
+                            <div className='w-full ml-1'>
+                                <label htmlFor="rating_count">Rating Count <span>*</span></label>
+                                <input type="number" id="rating_count" placeholder='Enter Rating Count' {...register("ratingCount", { required: true })} />
+                            </div>
+                        </div>
 
                         <div className='flex justify-between'>
                             <div className='w-full mr-1'>

@@ -13,7 +13,7 @@ const SingleBlog = () => {
             .then(res => res.json())
             .then(data => setBlogs(data))
     }, [blogId])
-    const { name, personImg, placeImg, placeLocation, date, time, rating, ratingCount, description } = blogs;
+    const { title, name, cost, category, personImg, placeImg, placeLocation, date, time, rating, ratingCount, description } = blogs;
     return (
         <>
             <Navigation></Navigation>
@@ -22,7 +22,7 @@ const SingleBlog = () => {
                     <h2 className="text-5xl font-bold text-medium text-gray-900 text-center mb-12">Traveler Experiences Details</h2>
                     <div className='mt-6 grid grid-cols-1 gap-y-8 gap-x-6 xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:gap-x-8 drop-shadow-lg'>
                         <div className="group relative p-4 drop-shadow-lg">
-                            <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                            <div className="w-full min-h-full bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-full lg:aspect-none">
                                 <img
                                     src={placeImg}
                                     alt={placeLocation}
@@ -63,7 +63,21 @@ const SingleBlog = () => {
                                 <h3 className='text-2xl font-medium ml-3'><span className='text-lg font-light italic'>By</span> {name}</h3>
                             </div>
 
+                            <h3 className='text-2xl font-medium mb-3'><span className='text-lg font-light italic'></span> {title}</h3>
+
                             <p className='text-lg text-gray-700'>{description}</p>
+                            <div className='flex justify-between items-center mt-2'>
+
+                                <div>
+                                    <span className='text-lg font-bold text-red-600'>$ {cost}</span>
+                                </div>
+                                <div className='flex justify-start items-center'>
+
+                                    <h3 className="text-lg text-gray-700 ml-2 font-bold">
+                                        Category: <span className='font-medium'>{category}</span>
+                                    </h3>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

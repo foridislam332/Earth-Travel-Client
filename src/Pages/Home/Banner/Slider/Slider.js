@@ -19,7 +19,7 @@ const Slider = () => {
                     </div>
                 </div>
                 <div>
-                    <img src="https://i.ibb.co/x2wWJLb/place-1.jpg" />
+                    <img src="https://i.ibb.co/nc5FCJz/s-1.jpg" />
                     <div className='slider_content text-white w-4/5 md:w-2/3 lg:w-1/2'>
                         <h2 className='text-lg md:text-4xl lg:text-5xl font-bold lg:pt-12'>Explore The Nature In <br /> Your Own Way</h2>
                         <p className='text-xs md:text-lg font-medium uppercase my-2 md:my-4'>Adventure is For Fveryone, Turn travel into a Lifestyle</p>
@@ -29,7 +29,7 @@ const Slider = () => {
                     </div>
                 </div>
                 <div>
-                    <img src="https://i.ibb.co/x2wWJLb/place-1.jpg" />
+                    <img src="https://i.ibb.co/DPJ44Dv/s-2.jpg" />
                     <div className='slider_content text-white w-4/5 md:w-2/3 lg:w-1/2'>
                         <h2 className='text-lg md:text-4xl lg:text-5xl font-bold lg:pt-12'>Explore The Nature In <br /> Your Own Way</h2>
                         <p className='text-xs md:text-lg font-medium uppercase my-2 md:my-4'>Adventure is For Fveryone, Turn travel into a Lifestyle</p>

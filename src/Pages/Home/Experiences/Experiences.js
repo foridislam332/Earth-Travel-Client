@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt, faCalendarAlt, faStar, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import './Experiences.css';
+import { Link } from 'react-router-dom';
 
 
 const Experiences = () => {
@@ -72,8 +73,7 @@ const Experiences = () => {
                                         <h3 className='text-2xl font-medium ml-3'><span className='text-lg font-light italic'>By</span> {item.name}</h3>
                                     </div>
                                     <div className='text-center my-4 mt-10'>
-                                        <a className='btn_primary' href="#">Read More ...</a>
-                                        {/* Reviews */}
+                                        <Link className='btn_primary' to={`/singleBlog/${item._id}`}>Read More ...</Link>
                                     </div>
                                 </div>
                             </div>

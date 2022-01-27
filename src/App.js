@@ -10,6 +10,7 @@ import AdminPannel from './Pages/Admin/AdminPannel/AdminPannel';
 import MakeAdmin from './Pages/Admin/MakeAdmin/MakeAdmin';
 import AdminRoute from './Pages/AdminRoute/AdminRoute';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
+import SingleBlog from './Pages/SingleBlog/SingleBlog';
 
 function App() {
     return (
@@ -21,6 +22,10 @@ function App() {
                         <Route path="/home" element={<Home />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
+                        <Route
+                            path="/singleBlog/:blogId"
+                            element={<PrivateRoute><SingleBlog /></PrivateRoute>}
+                        />
                         <Route
                             path="/addBlog"
                             element={<AdminRoute><AddBlog /></AdminRoute>}

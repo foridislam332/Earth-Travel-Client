@@ -2,7 +2,7 @@
     {
         "id": "01",
         "placeLocation": "Tokyo, Jappan",
-        "title": "",
+        "title": "The Hanno Kawara",
         "cost": 220,
         "category": "Family Vacation",
         "name": "Kevin Francis",
@@ -17,7 +17,7 @@
     {
         "id": "02",
         "placeLocation": "Socotra, Yemen",
-        "title": "",
+        "title": "The Socotra",
         "cost": 270,
         "category": "Business Travel",
         "name": "Arne Sorenson",

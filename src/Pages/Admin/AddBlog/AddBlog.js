@@ -11,9 +11,7 @@ const AddBlog = () => {
     const personImg = user.photoURL;
     // handle submit
     const onSubmit = data => {
-        const newData = { ...data, personImg }
-        console.log(newData)
-        axios.post('http://localhost:5000/blogs', newData)
+        axios.post('http://localhost:5000/blogs', data)
             .then(res => {
                 if (res.newData.insertedId) {
                     alert("Blog Added Successful!!");
@@ -39,6 +37,9 @@ const AddBlog = () => {
                         <label htmlFor="location">Location <span>*</span></label>
                         <input placeholder='Enter Spots Location' id="location" {...register("placeLocation", { required: true })} />
 
+                        <label htmlFor="traveler_img">Traveler Image Link <span>*</span></label>
+                        <input placeholder='Paste Traveler image link' defaultValue={personImg || ""} id="traveler_img" {...register("personImg", { required: true })} />
+
                         <label htmlFor="img_link">Image Link <span>*</span></label>
                         <input placeholder='Paste your Place image link' id="img_link" {...register("placeImg", { required: true })} />
 
@@ -53,14 +54,14 @@ const AddBlog = () => {
 
                             <div className='w-full ml-1'>
                                 <label htmlFor="category">Category <span>*</span></label>
-                                <input type="number" id="category" placeholder='Enter Category' {...register("category", { required: true })} />
+                                <input id="category" placeholder='Enter Category' {...register("category", { required: true })} />
                             </div>
                         </div>
 
                         <div className='flex justify-between'>
                             <div className='w-full mr-1'>
                                 <label htmlFor="rating">Rating <span>*</span></label>
-                                <input type="number" id="rating" placeholder='Enter Rating' {...register("rating", { required: true })} />
+                                <input id="rating" placeholder='Enter Rating' {...register("rating", { required: true })} />
                             </div>
 
                             <div className='w-full ml-1'>

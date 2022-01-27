@@ -12,6 +12,8 @@ import AdminRoute from './Pages/AdminRoute/AdminRoute';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import SingleBlog from './Pages/SingleBlog/SingleBlog';
 import AllBlogs from './Pages/AllBlogs/AllBlogs';
+import ManageBlogs from './Pages/Admin/ManageBlogs/ManageBlogs';
+import UpdateBlog from './Pages/Admin/UpdateBlog/UpdateBlog';
 
 function App() {
     return (
@@ -41,6 +43,15 @@ function App() {
                         <Route
                             path="/makeAdmin"
                             element={<AdminRoute><MakeAdmin /></AdminRoute>}
+                        />
+                        <Route
+                            path="/manageBlog"
+                            element={<AdminRoute><ManageBlogs /></AdminRoute>}
+                        />
+
+                        <Route
+                            path="/updateBlog/:updateId"
+                            element={<AdminRoute><UpdateBlog /></AdminRoute>}
                         />
                     </Routes>
                     <Footer></Footer>

@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, sendEmailVerification } from "firebase/auth";
 import { useEffect, useState } from "react";
 import firebaseAuth from "../Pages/Login/Firebase/firebase.init";
 
@@ -30,11 +30,31 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     }
 
+    // const registerUser = (email, password, name, navigate) => {
+    //     setIsLoading(true);
+    //     createUserWithEmailAndPassword(auth, email, password)
+    //         .then((result) => {
+    //             verifyEmail();
+    //             const user = result.user;
+
+    //             const newUser = { email, displayName: name };
+    //             setUser(newUser);
+
+    //             navigate("/home");
+    //             // save user to the database
+    //             saveUser(email, name, "POST");
+    //         })
+    //         .catch((error) => {})
+
+    //         .finally(() => setIsLoading(false));
+    // };
+
     // Register New User
     const registerUser = (name, email, password, location, navigate) => {
         setIsLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
+                verifyEmail();
                 // save user to the database
                 saveUser(email, name, "POST");
 
@@ -51,8 +71,13 @@ const useFirebase = () => {
                 setError(errorMessage)
             })
             .finally(() => setIsLoading(false));
-
     }
+
+    const verifyEmail = () => {
+        sendEmailVerification(auth.currentUser).then(() => {
+            // Email verification sent!
+        });
+    };
 
     // Email password login
     const passwordLoginUser = (email, password, location, navigate) => {

@@ -7,7 +7,7 @@ import AdminNav from '../AdminNav/AdminNav';
 const UpdateBlog = () => {
     const [blogs, setBlogs] = useState([]);
     const { updateId } = useParams();
-    const url = `http://localhost:5000/blogs/${updateId}`;
+    const url = `https://fierce-beyond-59562.herokuapp.com/blogs/${updateId}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -18,7 +18,7 @@ const UpdateBlog = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     // handle submit
     const onSubmit = data => {
-        const url = `http://localhost:5000/blogs/${updateId}`;
+        const url = `https://fierce-beyond-59562.herokuapp.com/blogs/${updateId}`;
         fetch(url, {
             method: 'PUT',
             headers: {

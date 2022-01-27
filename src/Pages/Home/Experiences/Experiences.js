@@ -12,7 +12,7 @@ const Experiences = () => {
     const [pageCount, setPageCount] = useState(0);
     const size = 10;
     useEffect(() => {
-        fetch(`http://localhost:5000/blogs?page=${page}&&size=${size}`)
+        fetch(`https://fierce-beyond-59562.herokuapp.com/logs?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setBlogs(data.blogs)

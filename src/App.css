@@ -40,3 +40,12 @@
   height: 20px;
   width: 20px !important;
 }
+
+.manage_blog{
+  transition: all .3s ease-in-out;
+}
+
+.manage_blog:hover{
+  box-shadow: 0 0 20px #b9b2b2;
+  border: 1px solid red !important;
+}

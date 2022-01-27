@@ -8,6 +8,7 @@ import { faUserAlt } from '@fortawesome/free-solid-svg-icons'
 
 const Navigation = () => {
     const { user, admin, logOut } = useAuth();
+    console.log(admin)
 
     const navigation = [
         { name: 'Home', href: '/', current: true },
@@ -61,7 +62,7 @@ const Navigation = () => {
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                                 {
-                                    admin ? <Link to="/admin" className="text-lg text-white  font-medium">
+                                    admin ? <Link to="/admin" className="text-lg text-white  font-medium hidden md:inline lg:inline">
                                         Admin Pannel
                                     </Link> : ""
                                 }
@@ -106,7 +107,11 @@ const Navigation = () => {
                                                         href="#"
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                     >
-                                                        Settings
+                                                        {
+                                                            admin ? <Link to="/admin" className="text-lg text-gray-900  font-medium">
+                                                                Admin Pannel
+                                                            </Link> : ""
+                                                        }
                                                     </a>
                                                 )}
                                             </Menu.Item>

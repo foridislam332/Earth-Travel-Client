@@ -11,7 +11,7 @@ const AddBlog = () => {
     const personImg = user.photoURL;
     // handle submit
     const onSubmit = data => {
-        axios.post('http://localhost:5000/blogs', data)
+        axios.post('https://fierce-beyond-59562.herokuapp.com/blogs', data)
             .then(res => {
                 if (res.newData.insertedId) {
                     alert("Blog Added Successful!!");
@@ -22,7 +22,7 @@ const AddBlog = () => {
     return (
         <>
             <AdminNav></AdminNav>
-            <div className='add_blog_container'>
+            <div className='add_blog_container w-11/12 md:w-4/5 lg:w-3/5'>
                 <div >
                     <div className="login_title mb-5">
                         <h3 className='text-2xl'>Write Your New Blog</h3>

@@ -7,12 +7,13 @@ import { useParams } from 'react-router-dom';
 const SingleBlog = () => {
     const [blogs, setBlogs] = useState([]);
     const { blogId } = useParams();
-    const url = `http://localhost:5000/blogs/${blogId}`;
+    const url = `https://fierce-beyond-59562.herokuapp.com/blogs/${blogId}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => setBlogs(data))
     }, [blogId])
+
     const { title, name, cost, category, personImg, placeImg, placeLocation, date, time, rating, ratingCount, description } = blogs;
     return (
         <>

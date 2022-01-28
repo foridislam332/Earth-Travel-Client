@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 const Footer = () => {
     return (
         <div className='bg-gray-800 pt-5 pb-5'>
@@ -10,6 +12,7 @@ const Footer = () => {
                     <div className="footer_item">
                         <Link to="/">
                             <h2 className='text-4xl font-bold'><span className='text-cyan-500'>Earth</span>Travel</h2>
+                            <i class="fab fa-facebook-f"></i>
                         </Link>
                         <p className='mb-5 mt-4 text-slate-400'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore explicabo blanditiis alias, excepturi exercitationem dolore error eveniet ea eos, maiores illum! Vel dolo</p>
 
@@ -45,10 +48,6 @@ const Footer = () => {
 
                             <p><span className='text-cyan-500 font-medium'>Email:</span> earth.travel@earth.com</p>
                             <p><span className='text-cyan-500 font-medium'>Phone:</span> +044 0145 055</p>
-
-                            <div className="social_links mt-3">
-                                <h3 className='text-2xl'>Social Profile</h3>
-                            </div>
                         </div>
                     </div>
                 </div>

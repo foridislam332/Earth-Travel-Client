@@ -1,13 +1,23 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import AdminNav from '../AdminNav/AdminNav';
 
 const AdminPannel = () => {
-    const [users, setUsers] = useState([]);
+    const [userBlogs, setUserBlogs] = useState([]);
     useEffect(() => {
-        fetch('https://fierce-beyond-59562.herokuapp.com/users')
+        fetch('http://localhost:5000/userBlogs')
             .then(res => res.json())
-            .then(data => setUsers(data))
+            .then(data => setUserBlogs(data))
     }, [])
+
+    const handlePostBlog = data => {
+        axios.post('http://localhost:5000/blogs', data)
+            .then(res => {
+                if (res.data.insertedId) {
+                    alert("Blog Added Successful!!");
+                }
+            })
+    };
     return (
         <div>
             <AdminNav></AdminNav>
@@ -30,41 +40,34 @@ const AdminPannel = () => {
                                         >
                                             <span className='text-lg text-white'>Status</span>
                                         </th>
-                                        <th
-                                            scope="col"
-                                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                        >
-                                            <span className='text-lg text-white'>Role</span>
-                                        </th>
                                         <th scope="col" className="relative pr-6 py-3">
                                             <span className="sr-only">Edit</span>
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
-                                    {users.map((person) => (
-                                        <tr key={person.email}>
+                                    {userBlogs.map((blog) => (
+                                        <tr key={blog._id}>
                                             <td className="pl-6 py-4 whitespace-nowrap">
-                                                <div>
+                                                <div className="flex items-center">
+                                                    <div className="flex-shrink-0 h-10 w-10">
+                                                        <img className="h-10 w-10 rounded-full" src={blog.placeImg} alt="" />
+                                                    </div>
                                                     <div>
-                                                        <div className="text-sm font-medium text-gray-900">{person.displayName}</div>
-                                                        <div className="text-sm text-gray-500">{person.email}</div>
+                                                        <div className="text-sm font-medium text-gray-900">{blog.title}</div>
+                                                        <div className="text-sm text-gray-500">{blog.placeLocation}</div>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td className="py-4 whitespace-nowrap">
                                                 <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                    Active
+                                                    Pending
                                                 </span>
                                             </td>
-                                            {
-                                                person.role ? <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">{person.role}</td> :
-                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Member</td>
-                                            }
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                                    Edit
-                                                </a>
+                                                <button onClick={() => handlePostBlog(blog)} className="text-indigo-600 hover:text-indigo-900">
+                                                    Post This
+                                                </button>
                                             </td>
                                         </tr>
                                     ))}

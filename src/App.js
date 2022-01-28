@@ -14,6 +14,7 @@ import SingleBlog from './Pages/SingleBlog/SingleBlog';
 import AllBlogs from './Pages/AllBlogs/AllBlogs';
 import ManageBlogs from './Pages/Admin/ManageBlogs/ManageBlogs';
 import UpdateBlog from './Pages/Admin/UpdateBlog/UpdateBlog';
+import CreateUserBlog from './Pages/CreateUserBlog/CreateUserBlog';
 
 function App() {
     return (
@@ -27,12 +28,16 @@ function App() {
                         <Route path="/register" element={<Register />} />
                         <Route path="/blogs" element={<AllBlogs />} />
                         <Route
+                            path="/createUserBlog"
+                            element={<PrivateRoute><CreateUserBlog /></PrivateRoute>}
+                        />
+                        <Route
                             path="/singleBlog/:blogId"
                             element={<PrivateRoute><SingleBlog /></PrivateRoute>}
                         />
                         <Route
                             path="/createBlog"
-                            element={<PrivateRoute><AddBlog /></PrivateRoute>}
+                            element={<AdminRoute><AddBlog /></AdminRoute>}
                         />
 
                         <Route

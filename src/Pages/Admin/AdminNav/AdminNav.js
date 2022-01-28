@@ -11,7 +11,7 @@ const AdminNav = () => {
 
     const navigation = [
         { name: 'Home', href: '/', current: false },
-        { name: 'Admin', href: '/admin', current: true },
+        { name: 'Dashboard', href: '/admin', current: true },
         { name: 'Make Admin', href: '/makeAdmin', current: false },
         { name: 'Create Blogs', href: '/createBlog', current: false },
         { name: 'Manage Blogs', href: '/manageBlog', current: false },
